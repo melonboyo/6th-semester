@@ -1,0 +1,42 @@
+ @startuml Alarm
+
+allow_mixing
+skinparam packageStyle frame
+skinparam Shadowing false
+
+skinparam classAttributeIconSize 0
+skinparam ClassBorderThickness 0.5
+skinparam class {
+    BackgroundColor AntiqueWhite
+    ArrowColor Black
+    BorderColor Black
+}
+skinparam defaultTextAlignment center
+
+package Model {
+   
+    Class Expert {
+        + quali : Set<Expert::Qualification>
+        + GetQuali()
+    }
+    
+    class Plant{ 
+        +ExpertToPage()
+    }
+
+    class Alarm {
+        -descr : String 
+        +setDescr() : String
+    }
+    
+    class FireAlarm {
+        -descr : String 
+        +setDescr() : String
+    }    
+  
+    Plant -right-> "0..*" Alarm : alarms
+    Plant "[Period]" -down-> "0..*" Expert : schedule
+    Alarm <|-- FireAlarm
+}
+
+@enduml

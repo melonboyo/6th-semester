@@ -1,7 +1,7 @@
 rosshutdown;
 %%
-master_ip = '192.168.87.186'; % IP of the host on the turtlebot (hostname -I in VM)
-host_ip = '192.168.87.146'; % IP of host running this script (ipconfig on Windows)
+master_ip = '10.192.104.155'; % IP of the host on the turtlebot (hostname -I in VM)
+host_ip = ''; % IP of host running this script (ipconfig on Windows)
 ROS_MASTER_URI = strcat('http://', master_ip, ':11311');
 
 % Connect to turtlebot
@@ -10,11 +10,11 @@ setenv('ROS_IP',host_ip);
 rosinit(ROS_MASTER_URI,'NodeHost',host_ip);
 %%
 % Load occupancy map
-img = imread("model.sdf(-335,-435).png");
+img = imread("shannon_hallway.png");
 grayImg = rgb2gray(img);
 bwImg = grayImg < 0.5;
-xoffset = -335;
-yoffset = -435;
+xoffset = -70;
+yoffset = -50;
 resolution = 50; % 50 pixels per meter
 
 % Create binary occupancy map
@@ -28,7 +28,7 @@ prmMap = mobileRobotPRM(map, 1000);
 
 % Define start and goal points
 startPoint = [0 0];
-goal = [-2 -2];
+goal = [5.7 3.87];
 
 % Use find path function on the PRM map
 path = findpath(prmMap,startPoint,goal);

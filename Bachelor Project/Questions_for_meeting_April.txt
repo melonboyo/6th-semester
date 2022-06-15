@@ -1,0 +1,16 @@
+Skal vi dykke et trin længere ned i koden of forklare hvordan det virker?
+Vdm2Uml/Uml2Vdm classes og deres convert methods f.eks?
+
+Hvorfor har hver UML tools deres egen xmi implementering?
+Er det fordi standarden ikke er strict nok?
+XMI er ikke blevet opdateret siden 2015, ville at OMG updaterede det fixe noget?
+
+have the uml transformations been updated to use newer EMF and modelio? notes.txt in plugins says modelio 2.2.1 but the models are not compatible.
+
+If we were to implement an xmi to plantuml transformation, can we have it on the LS? And as what kind of executable (.jar, .py, etc)?
+
+How to work with an XML file? 
+
+Type checking vs parser errors in model.isTypeCorrect() 
+
+Hvad laver de der preference flags i vdm2uml constructoren?
